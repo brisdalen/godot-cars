@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://hmpnpnkmnhj5"]
+
+[ext_resource type="PackedScene" uid="uid://b2qm50s4x67u1" path="res://sedan_sports.tscn" id="1_cshtb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0m0y6"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xvxr"]
+size = Vector3(60, 2, 60)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_0m0y6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_3xvxr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.913758, 0.406258, 0, -0.406258, -0.913758, 0, 14.8253, -19.4267)
+
+[node name="sedan-sports" parent="." instance=ExtResource("1_cshtb")]
+
+[node name="Camera3D" type="Camera3D" parent="sedan-sports"]
+transform = Transform3D(-1, 0, -8.74228e-08, -2.6306e-08, 0.953654, 0.300906, 8.33711e-08, 0.300906, -0.953654, 0, 2.65406, -3.33757)
+current = true

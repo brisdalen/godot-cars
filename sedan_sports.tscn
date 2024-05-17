@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2qm50s4x67u1"]
+
+[ext_resource type="PackedScene" uid="uid://dmydpajos0xkn" path="res://cars/sedan-sports.glb" id="1_a76dn"]
+[ext_resource type="Script" path="res://sedan_sports.cs" id="2_ct3hi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oc0uk"]
+size = Vector3(1.18359, 0.921387, 2.42993)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a8kq7"]
+height = 1.35242
+radius = 0.271098
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4pmcd"]
+height = 1.32075
+radius = 0.317957
+
+[node name="sedan-sports" instance=ExtResource("1_a76dn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_ct3hi")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63487, -0.0670166)
+shape = SubResource("BoxShape3D_oc0uk")
+
+[node name="CollisionWheelsFront" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.000462115, 0.295866, 0.669745)
+shape = SubResource("CylinderShape3D_a8kq7")
+
+[node name="CollisionWheelsRear" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.29, -0.67)
+shape = SubResource("CylinderShape3D_4pmcd")
